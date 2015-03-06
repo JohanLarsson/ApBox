@@ -2,9 +2,13 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:apBox="clr-namespace:ApBox"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         Title="MainWindow"
         Width="525"
-        Height="350">
+        Height="350"
+        d:DataContext="{d:DesignInstance apBox:ViewModel}"
+        mc:Ignorable="d">
     <Window.Resources>
         <Style TargetType="{x:Type Button}">
             <Setter Property="Template">
@@ -30,13 +34,18 @@
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <ComboBox ItemsSource="{x:Static apBox:NestedEnumSource.Members}"></ComboBox>
-        <Button  Width="50"
+        <ComboBox DisplayMemberPath="Description"
+                  ItemsSource="{Binding Members}"
+                  SelectedValue="{Binding SelectedValue}"
+                  SelectedValuePath="Value" />
+        <Button Grid.Row="1"
+                Width="50"
                 Height="50"
+                Margin="234,70.756,233,135"
                 Content="Text"
-                apBox:ButtonBehavior.Geometry="M0,0 L1,1 1,0z" Margin="234,70.756,233,135" Grid.Row="1" />
+                apBox:ButtonBehavior.Geometry="M0,0 L1,1 1,0z" />
     </Grid>
 </Window>

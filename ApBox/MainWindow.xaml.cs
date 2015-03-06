@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.ComponentModel;
 using System.Windows;
 
 namespace ApBox
@@ -13,24 +11,7 @@ namespace ApBox
         public MainWindow()
         {
             InitializeComponent();
-        }
-
-        public enum NestedEnum
-        {
-            One,
-            Two
-        }
-    }
-
-    public static class NestedEnumSource
-    {
-        public static IEnumerable<MainWindow.NestedEnum> Members
-        {
-            get
-            {
-                return Enum.GetValues(typeof(MainWindow.NestedEnum))
-                           .Cast<MainWindow.NestedEnum>();
-            }
+            DataContext = new ViewModel();
         }
     }
 }
