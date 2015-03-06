@@ -29,9 +29,14 @@
         </Style>
     </Window.Resources>
     <Grid>
-        <Button Width="50"
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <ComboBox ItemsSource="{x:Static apBox:NestedEnumSource.Members}"></ComboBox>
+        <Button  Width="50"
                 Height="50"
                 Content="Text"
-                apBox:ButtonBehavior.Geometry="M0,0 L1,1 1,0z" />
+                apBox:ButtonBehavior.Geometry="M0,0 L1,1 1,0z" Margin="234,70.756,233,135" Grid.Row="1" />
     </Grid>
 </Window>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 
 namespace ApBox
@@ -16,12 +17,12 @@ namespace ApBox
             typeof (ButtonBehavior),
             new PropertyMetadata(default(Geometry)));
 
-        public static void SetGeometry(DependencyObject element, Geometry value)
+        public static void SetGeometry(this ButtonBase element, Geometry value)
         {
             element.SetValue(GeometryProperty, value);
         }
 
-        public static Geometry GetGeometry(DependencyObject element)
+        public static Geometry GetGeometry(this ButtonBase element)
         {
             return (Geometry) element.GetValue(GeometryProperty);
         }
